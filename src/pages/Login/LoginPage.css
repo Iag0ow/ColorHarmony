@@ -1,0 +1,77 @@
+.backgroundImg {
+  background-size: contain; /* A imagem se ajustará perfeitamente, mantendo a proporção */
+  background-position: center center;
+  background-attachment: fixed; /* Opcional, para manter a imagem fixa ao rolar a página */
+  width: 100vw;
+  height: 100vh;
+  position: absolute; /* Isso posiciona o elemento em relação à janela do navegador */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Define uma camada abaixo do conteúdo principal */
+}
+.containerLogin {
+  /* border: 1px solid black; */
+  margin-right: 0px;
+  margin-left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 200px;
+  padding-top: 120px;
+}
+.loginInputs {
+  padding: 60px;
+  /* border: 1px solid red; */
+  height: 550px;
+  width: 549px;
+  background-color: white;
+  border-radius: 10px;
+}
+.imageLoginRight {
+  background-color: white;
+  width: 570px;
+  border-radius: 10px;
+}
+.formLoginLeft {
+  /* border: 1px solid blue; */
+  padding-left: 0px;
+  padding-right: 630px;
+  width: 31%;
+}
+.inputsLogin {
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 27px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #69696991;
+}
+.inputsLogin::placeholder {
+  font-size: 17px;
+  color: #575656;
+  font-family: "Poppins", sans-serif;
+  text-align: start;
+}
+.buttonLogin {
+  width: 430px;
+  height: 45px;
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #575656;
+  border-radius: 5px;
+  margin-top: 90px;
+  font-size: 20px;
+}
+.loginRegister_tagA {
+  font-weight: bold;
+  color: #575656;
+  text-decoration: none;
+}
+.loginRegister_tagA:hover {
+  color: #575656;
+  transition: color 0.5s;
+}
+input[type="checkbox"]:checked + label {
+    color: black;
+  }
