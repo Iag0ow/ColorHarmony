@@ -1,0 +1,28 @@
+.containerHome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.buttonRotaLogin {
+  background-color: #272525;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  color: #fff;
+  padding: 24px 32px;
+  gap: 16px;
+  width: 388px;
+  height: 35px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.buttonRotaLogin:hover {
+  background-color: #3f3d3d;
+  transition: background-color 0.5s;
+}
