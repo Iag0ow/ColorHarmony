@@ -1,16 +1,17 @@
 import "./LoginPage.css";
 import backgroundImg from "../components/images/WoodsBackground.png";
 import LoginRegisterImageRight from "../components/images/LoginRegisterImage.png";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   return (
     <>
       <div className="temporaryBackground">
-        <img
+        {/* <img
           className="backgroundImg"
           src={backgroundImg}
           alt="background image"
-        />
+        /> */}
         <section className="row containerLogin">
           <div className="formLoginLeft col-md-6">
             <form className="loginInputs">
@@ -52,7 +53,12 @@ export default function LoginPage() {
                 </label>
               </div>
 
+              <Link to={"/"}>
+              
+              
               <button className="buttonLogin">Entrar</button>
+              
+              </Link>
               <div className="mt-2" style={{ textAlign: "center" }}>
                 Você não tem conta?{" "}
                 <a

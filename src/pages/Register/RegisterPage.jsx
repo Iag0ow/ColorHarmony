@@ -5,11 +5,11 @@ import LoginRegisterImageRight from "../components/images/LoginRegisterImage.png
 export default function RegisterPage() {
   return (
     <>
-      <img
+      {/* <img
         className="backgroundImg"
         src={backgroundImg}
         alt="background image"
-      />
+      /> */}
       <section className="row containerLogin">
           <div className="formLoginLeft col-md-6">
             <form className="registerInputs">
