@@ -1,27 +1,23 @@
-import React, { useEffect, useState } from "react";
-import "./Profile.css";
 import {
   Avatar,
-  Text,
-  Divider,
-  Switch,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
   Button,
   FormControl,
   FormLabel,
-  FormErrorMessage,
   Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure
 } from "@chakra-ui/react";
-import { dadosUsuario } from "../../utils/Config";
 import { useQuery } from "@tanstack/react-query";
-import { editaUsuario } from "../../utils/Config";
+import React, { useEffect, useState } from "react";
+import { dadosUsuario, editaUsuario } from "../../utils/Config";
+import "./Profile.css";
 
 const Profile = () => {
   const { data: User } = useQuery({
