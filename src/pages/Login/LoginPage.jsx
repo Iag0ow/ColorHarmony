@@ -1,20 +1,33 @@
-import "./LoginPage.css";
-import backgroundImg from "../components/images/WoodsBackground.png";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../utils/Config";
 import LoginRegisterImageRight from "../components/images/LoginRegisterImage.png";
-import { Link } from "react-router-dom";
+import "./LoginPage.css";
 
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navegar = useNavigate();
+
+  const fazerLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await login({ email, password });
+      console.log("teste");
+      navegar("/");
+      localStorage.setItem("token", data.access_token);
+    } catch (error) {
+      setError("Falha ao tentar entrar...");
+    }
+  };
+
   return (
     <>
       <div className="temporaryBackground">
-        {/* <img
-          className="backgroundImg"
-          src={backgroundImg}
-          alt="background image"
-        /> */}
         <section className="row containerLogin">
           <div className="formLoginLeft col-md-6">
-            <form className="loginInputs">
+            <form className="loginInputs" onSubmit={fazerLogin}>
               <h1>Bem vindo</h1>
               <h4 className="mb-5" style={{ opacity: "0.8" }}>
                 Entre em sua conta
@@ -23,11 +36,15 @@ export default function LoginPage() {
                 className="inputsLogin"
                 type="email"
                 placeholder="Entre com seu email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
               <input
                 className="inputsLogin mb-2"
                 type="password"
                 placeholder="Digite sua senha"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
               />
               <div>
                 <input
@@ -52,13 +69,8 @@ export default function LoginPage() {
                   Lembrar-me
                 </label>
               </div>
-
-              <Link to={"/"}>
-              
-              
+              <label className="mt-3 text-danger">{error}</label>
               <button className="buttonLogin">Entrar</button>
-              
-              </Link>
               <div className="mt-2" style={{ textAlign: "center" }}>
                 Você não tem conta?{" "}
                 <a
