@@ -11,8 +11,8 @@ export default function HomePage() {
           <div className="row">
               <div className='col-md-12'>
                 <div className="d-flex justify-content-center align-items-center mb-5">
-                  <div>
-                    <img src={ColorHarmonyHome} alt="" />
+                  <div className="homeImage">
+                    <img  src={ColorHarmonyHome} alt="" />
                   </div>
                 </div>
                 <Link to={'/questionnaire'} className={`d-flex align-items-center justify-content-center btn btn-entrar`}>Iniciar Questionário</Link>

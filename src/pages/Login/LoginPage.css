@@ -18,19 +18,26 @@
   align-items: center;
   padding-left: 200px;
   padding-top: 120px;
+  padding-right: 200px;
 }
 .loginInputs {
   padding: 60px;
   /* border: 1px solid red; */
-  height: 550px;
+  height: 580px;
   width: 549px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
 }
 .imageLoginRight {
-  background-color: white;
-  width: 570px;
+  width: 800px;
+  height: 500px;
   border-radius: 10px;
+  background: none !important;
+}
+.imageLoginRight img {
+  width: 800px !important;
+  border-radius: 10px;
+  background: none !important;
 }
 .formLoginLeft {
   /* border: 1px solid blue; */
@@ -56,7 +63,7 @@
 .buttonLogin {
   width: 430px;
   height: 45px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   color: #333333;
   border: 1px solid #575656;
   border-radius: 5px;
@@ -73,5 +80,5 @@
   transition: color 0.5s;
 }
 input[type="checkbox"]:checked + label {
-    color: black;
-  }
+  color: black;
+}
