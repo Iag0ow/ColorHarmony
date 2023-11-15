@@ -8,6 +8,7 @@ import LoginPage from "./pages/Login/LoginPage";
 import Profile from "./pages/Profile/Profile";
 import Questionnaire from "./pages/Questionnaire/Questionnaire";
 import RegisterPage from "./pages/Register/RegisterPage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function App() {
   function ProtectedRoute({ outlet }) {
@@ -18,10 +19,20 @@ export default function App() {
     return outlet;
   }
 
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        retry: 0,
+      },
+    },
+  });
+
   return (
     <QuestionnaireProvider>
       <MantineProvider>
         <ChakraProvider>
+        <QueryClientProvider client={queryClient}>
           <BrowserRouter>
             <Routes>
               <Route
@@ -37,6 +48,7 @@ export default function App() {
               <Route path="/profile" element={<ProtectedRoute outlet={<Profile />} />} />
             </Routes>
           </BrowserRouter>
+        </QueryClientProvider>
         </ChakraProvider>
       </MantineProvider>
     </QuestionnaireProvider>
