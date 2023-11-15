@@ -2,6 +2,10 @@ body{
   background-color: #EFEFEF;
   background-size: cover;
 }
+.homeImage img{
+  height: 200px !important;
+  width: 200px !important;
+}
 .login-page{
   color: white;
   background-color: #EFEFEF;

@@ -1,6 +1,6 @@
 import "./LoginPage.css";
 import backgroundImg from "../components/images/WoodsBackground.png";
-import LoginRegisterImageRight from "../components/images/LoginRegisterImage.png";
+import LoginRegisterImageRight from "../components/images/ColorHarmonyHome.png";
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {
@@ -13,6 +13,9 @@ export default function LoginPage() {
           alt="background image"
         /> */}
         <section className="row containerLogin">
+          <div className=" imageLoginRight col-md-6">
+            <img src={LoginRegisterImageRight} alt="Login image" />
+          </div>
           <div className="formLoginLeft col-md-6">
             <form className="loginInputs">
               <h1>Bem vindo</h1>
@@ -20,7 +23,7 @@ export default function LoginPage() {
                 Entre em sua conta
               </h4>
               <input
-                className="inputsLogin"
+                className="inputsLogin mb-4"
                 type="email"
                 placeholder="Entre com seu email"
               />
@@ -54,12 +57,9 @@ export default function LoginPage() {
               </div>
 
               <Link to={"/"}>
-              
-              
-              <button className="buttonLogin">Entrar</button>
-              
+                <button className="buttonLogin">Entrar</button>
               </Link>
-              <div className="mt-2" style={{ textAlign: "center" }}>
+              <div className="mt-4" style={{ textAlign: "center" }}>
                 Você não tem conta?{" "}
                 <a
                   className="loginRegister_tagA"
@@ -70,9 +70,6 @@ export default function LoginPage() {
                 </a>
               </div>
             </form>
-          </div>
-          <div className="imageLoginRight col-md-6">
-            <img src={LoginRegisterImageRight} alt="Login image" />
           </div>
         </section>
       </div>
