@@ -22,7 +22,7 @@ export default function HomePage() {
     <div className="home-page">
       <form className="container home-page-box">
         <div className="page-box-context">
-          <div className="row testeName">
+          <div className="row">
             <div className="col-md-12">
               <div className="homeImageHolder d-flex justify-content-center align-items-center mb-5">
                 <div className="homeImage">
