@@ -1,6 +1,14 @@
-.carProfile{
-    background-color: white;
-    width: 35em;
-    height: 20em;
+.carProfile {
+  background-color: white;
+  width: 35em;
+  height: 20em;
+  border-radius: 10px;
 }
-
+.borda1 {
+  background: url("../components/images/borderColor.png") no-repeat;
+  background-size: cover;
+  width: 38em;
+  height: 23em;
+  border-radius: 10px;
+  box-shadow: 0px 0px 31px -1px #0000009c;
+}

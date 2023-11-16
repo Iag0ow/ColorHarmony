@@ -60,7 +60,9 @@ const Profile = () => {
         className="container d-flex justify-content-center align-items-center"
         style={{ height: "100vh" }}
       >
-        <div className="carProfile">
+        <div className="borda1 d-flex justify-content-center align-items-center">
+
+        <div className="carProfile ">
           <div className="d-flex w-100  justify-content-end">
             <div className="me-2 mt-2" onClick={onOpen}>
               <svg
@@ -78,7 +80,7 @@ const Profile = () => {
           <div className=" d-flex flex-column justify-content-center align-items-center w-100 h-100 pb-5">
             <Avatar
               size="2xl"
-              src="https://img.freepik.com/fotos-premium/macaco-em-um-terno-de-negocios-com-um-telefone-na-mao-gerado-por-ia_941980-76.jpg"
+              src="../../img/default-profile"
             />
             <Text className="text-wrap text-center fs-1 m-0" noOfLines={1}>
               {dados?.username}
@@ -93,6 +95,7 @@ const Profile = () => {
               </Text>
             </div>
           </div>
+        </div>
         </div>
         <Modal
           initialFocusRef={initialRef}
