@@ -1,8 +1,12 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../utils/Config";
-import LoginRegisterImageRight from "../components/images/LoginRegisterImage.png";
 import "./LoginPage.css";
+import backgroundImg from "../components/images/WoodsBackground.png";
+import LoginRegisterImageRight from "../components/images/ColorHarmonyHome.png";
+import { Link } from "react-router-dom";
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -26,6 +30,9 @@ export default function LoginPage() {
     <>
       <div className="temporaryBackground">
         <section className="row containerLogin">
+          <div className=" imageLoginRight col-md-6">
+            <img src={LoginRegisterImageRight} alt="Login image" />
+          </div>
           <div className="formLoginLeft col-md-6">
             <form className="loginInputs" onSubmit={fazerLogin}>
               <h1>Bem vindo</h1>
@@ -33,7 +40,7 @@ export default function LoginPage() {
                 Entre em sua conta
               </h4>
               <input
-                className="inputsLogin"
+                className="inputsLogin mb-4"
                 type="email"
                 placeholder="Entre com seu email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -69,6 +76,7 @@ export default function LoginPage() {
                   Lembrar-me
                 </label>
               </div>
+
               <label className="mt-3 text-danger">{error}</label>
               <button className="buttonLogin">Entrar</button>
               <div className="mt-2" style={{ textAlign: "center" }}>
@@ -82,9 +90,6 @@ export default function LoginPage() {
                 </a>
               </div>
             </form>
-          </div>
-          <div className="imageLoginRight col-md-6">
-            <img src={LoginRegisterImageRight} alt="Login image" />
           </div>
         </section>
       </div>

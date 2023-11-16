@@ -24,10 +24,11 @@ export default function HomePage() {
       <form className="container login-page-box">
         <div className="page-box-context">
           <div className="row">
-            <div className="col-md-12">
-              <div className="d-flex justify-content-center align-items-center mb-5">
-                <div>
-                  <img src={ColorHarmonyHome} alt="" />
+              <div className='col-md-12'>
+                <div className="d-flex justify-content-center align-items-center mb-5">
+                  <div className="homeImage">
+                    <img  src={ColorHarmonyHome} alt="" />
+                  </div>
                 </div>
               </div>
               <Link
