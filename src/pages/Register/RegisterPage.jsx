@@ -10,7 +10,7 @@ export default function RegisterPage() {
         src={backgroundImg}
         alt="background image"
       /> */}
-      <section className="row containerLogin">
+      <section className="row containerRegister">
         <div className="imageLoginRight col-md-6">
           <img src={LoginRegisterImageRight} alt="Login image" />
         </div>
