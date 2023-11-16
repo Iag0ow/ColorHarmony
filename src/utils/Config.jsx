@@ -38,6 +38,23 @@ export const dadosUsuario = async () => {
   }
   return data;
 };
+export const configUsuario = async () => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${bearerToken}`,
+    },
+    method: "GET",
+  };
+
+  const response = await fetch(`${API}/api-user/profile/configurations`, config);
+  const data = await response.json();
+
+  if (!response.ok) {
+      return 'Algo deu errado'
+  }
+  return data;
+};
 
 export const editaUsuario = async (dados) => {
   const config = {

@@ -9,6 +9,7 @@ import Profile from "./pages/Profile/Profile";
 import Questionnaire from "./pages/Questionnaire/Questionnaire";
 import RegisterPage from "./pages/Register/RegisterPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Settings from "./pages/settings/settings";
 
 export default function App() {
   function ProtectedRoute({ outlet }) {
@@ -46,6 +47,7 @@ export default function App() {
                 element={<ProtectedRoute outlet={<Questionnaire />} />}
               />
               <Route path="/profile" element={<ProtectedRoute outlet={<Profile />} />} />
+              <Route path="/settings" element={<ProtectedRoute outlet={<Settings />} />} />
             </Routes>
           </BrowserRouter>
         </QueryClientProvider>
