@@ -126,7 +126,7 @@ const Questionnaire = () => {
                     atualizaremos a sua conta com os detalhes fornecidos.
                   </p>
                 </div>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center align-items-center flex-column">
                   <div className="inputToken">
                     <Input
                       disabled
@@ -142,7 +142,7 @@ const Questionnaire = () => {
                     </Button>
                   </div>
                   <Link to={"/"}>
-                    <Button colorScheme="blue" variant="solid" className="mt-4">
+                    <Button colorScheme="blue" variant="solid" className="mt-2">
                       Voltar
                     </Button>
                   </Link>
@@ -150,7 +150,7 @@ const Questionnaire = () => {
               </>
             ) : (
               <>
-                <Stepper size="lg" index={activeStep}>
+                <Stepper className="box-step" size="lg" index={activeStep}>
                   {steps.map((step, index) => (
                     <Step key={index}>
                       <StepIndicator>
@@ -201,7 +201,6 @@ const Questionnaire = () => {
                       ""
                     ) : (
                       <Button
-                      style={{ marginTop: "30px" }}
                         colorScheme="blue"
                         variant="outline"
                         className="botaoVoltarQuestionnaire"
@@ -217,7 +216,6 @@ const Questionnaire = () => {
                       <Button
                         colorScheme="blue"
                         variant="solid"
-                        className="mt-4"
                         onClick={handleNext}
                       >
                         Avançar
@@ -226,7 +224,6 @@ const Questionnaire = () => {
                       <Button
                         colorScheme="blue"
                         variant="solid"
-                        className="mt-4"
                         onClick={handleConclude}
                       >
                         Concluir
