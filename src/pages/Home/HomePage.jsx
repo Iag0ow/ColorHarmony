@@ -13,10 +13,10 @@ export default function HomePage() {
   const [rota, setRota] = useState("/settings");
 
   useEffect(() => {
-    if(ConfigUser === 'Algo deu errado'){
+    if (ConfigUser === "Algo deu errado") {
       setRota("/questionnaire");
     }
-    console.log(ConfigUser)
+    console.log(ConfigUser);
   }, [ConfigUser]);
 
   return (
@@ -24,29 +24,28 @@ export default function HomePage() {
       <form className="container login-page-box">
         <div className="page-box-context">
           <div className="row">
-              <div className='col-md-12'>
-                <div className="d-flex justify-content-center align-items-center mb-5">
-                  <div className="homeImage">
-                    <img  src={ColorHarmonyHome} alt="" />
-                  </div>
+            <div className="col-md-12">
+              <div className="d-flex justify-content-center align-items-center mb-5">
+                <div className="homeImage">
+                  <img src={ColorHarmonyHome} alt="" />
                 </div>
               </div>
-              <Link
-                to={rota}
-                className={`d-flex align-items-center justify-content-center btn btn-entrar`}
-              >
-                Configurações
-              </Link>
-              <div className="text-center mt-4 mb-4 ou-border">
-                <div></div>
-              </div>
-              <Link
-                to={"/profile"}
-                className={`d-flex align-items-center justify-content-center btn btn-entrar mt-4`}
-              >
-                Visualizar Perfil
-              </Link>
             </div>
+            <Link
+              to={rota}
+              className={`d-flex align-items-center justify-content-center btn btn-entrar`}
+            >
+              Configurações
+            </Link>
+            <div className="text-center mt-4 mb-4 ou-border">
+              <div></div>
+            </div>
+            <Link
+              to={"/profile"}
+              className={`d-flex align-items-center justify-content-center btn btn-entrar mt-4`}
+            >
+              Visualizar Perfil
+            </Link>
           </div>
         </div>
       </form>
