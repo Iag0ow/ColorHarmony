@@ -12,6 +12,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Settings from "./pages/Settings/Settings";
 
 export default function App() {
+  // teste do vercel com Iago e Kadmo
   function ProtectedRoute({ outlet }) {
     const access_token = localStorage.getItem("token");
     if (!access_token) {
