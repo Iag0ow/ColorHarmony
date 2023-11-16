@@ -74,3 +74,23 @@ export const editaUsuario = async (dados) => {
   const data = await response.json();
   return data;
 };
+export const setConfigUser = async (QuestionnaireForm) => {
+  const config = {
+    headers: {
+      "Authorization": `Bearer ${bearerToken}`,
+      "Content-Type": "application/json",
+    },
+    method: "PUT",
+    body: JSON.stringify(QuestionnaireForm),
+  };
+
+  const response = await fetch(`${API}/api-user/profile/configurations`, config);
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  const data = await response.json();
+
+  return data;
+};
