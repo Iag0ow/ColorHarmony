@@ -23,3 +23,9 @@
 .text-btn {
   font-weight: bold;
 }
+
+@media screen and (max-width: 768px) {
+  .borda{
+    width: inherit;
+  }
+}
