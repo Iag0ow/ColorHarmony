@@ -38,7 +38,6 @@ export default function HomePage() {
               Configurações
             </Link>
             <div className="text-center mt-4 mb-4 ou-border">
-              <div></div>
             </div>
             <Link
               to={"/profile"}
