@@ -35,7 +35,7 @@ export default function Settings() {
         className="container d-flex justify-content-center align-items-center"
         style={{ height: "100vh" }}
       >
-        <div className="container borda d-flex flex-column justify-content-center align-items-center">
+        <div className="borda d-flex flex-column justify-content-center align-items-center">
         <div className="carSettings ">
           <div className="d-flex flex-column justify-content-center align-items-center  h-100">
             <div className="d-flex flex-column justify-content-center align-items-center gap-3 h-100">
