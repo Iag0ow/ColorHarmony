@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import "./Questionnaire.css";
-import { Button } from "@chakra-ui/react";
+import { Button, Input } from "@chakra-ui/react";
+
 import {
   useSteps,
   StepStatus,
@@ -27,6 +28,23 @@ import { useQuestionnaireContext } from "../../Provider/QuestionnaireProvider";
 import { setConfigUser } from "../../utils/Config";
 
 const Questionnaire = () => {
+  const tokenAcces = () => localStorage.getItem("token");
+
+  const [hasCopied, setHasCopied] = useState(false);
+
+  useEffect(() => {}, [hasCopied]);
+
+  const handleCopyClick = async () => {
+    const token = tokenAcces();
+    await navigator.clipboard.writeText(token);
+    setHasCopied(true);
+    setTimeout(() => {
+      setHasCopied(false);
+    }, 1500);
+    // setValue(token);
+    // onCopy();
+  };
+
   const steps = [
     { title: "Primeira", description: "Problemas visuais" },
     { title: "Segunda", description: "Sobre cores" },
@@ -72,7 +90,7 @@ const Questionnaire = () => {
       return;
     }
     updateStatusError(false);
-    
+
     const obj = {
       daltonian: JSON.parse(formOneFirstQuestion),
       night_mode: JSON.parse(formSecondFirstQuestion),
@@ -96,7 +114,7 @@ const Questionnaire = () => {
           />
         </Link>
       </div>
-      <div className="container mt-5">
+      <div className="container mt-2">
         <div className="row">
           <div className="col-md-12 bg-white p-5 rounded">
             {finished ? (
@@ -109,6 +127,20 @@ const Questionnaire = () => {
                   </p>
                 </div>
                 <div className="d-flex justify-content-center">
+                  <div className="inputToken">
+                    <Input
+                      disabled
+                      color="teal"
+                      placeholder="Copiar Token"
+                      _placeholder={{ color: "inherit" }}
+                      onChange={(e) => {
+                        setValue(e.target.value);
+                      }}
+                    />
+                    <Button onClick={handleCopyClick}>
+                      {hasCopied ? "Copied!" : "Copy"}
+                    </Button>
+                  </div>
                   <Link to={"/"}>
                     <Button colorScheme="blue" variant="solid" className="mt-4">
                       Voltar
@@ -163,15 +195,16 @@ const Questionnaire = () => {
                     />
                   )}
                 </Box>
-                <div className="d-flex justify-content-between">
+                <div className="botoesHolder">
                   <div>
                     {activeStep === 0 ? (
                       ""
                     ) : (
                       <Button
+                      style={{ marginTop: "30px" }}
                         colorScheme="blue"
                         variant="outline"
-                        className="mt-4"
+                        className="botaoVoltarQuestionnaire"
                         onClick={() => setActiveStep(activeStep - 1)}
                         disabled={activeStep === 0}
                       >
