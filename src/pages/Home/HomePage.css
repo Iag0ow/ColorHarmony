@@ -95,15 +95,7 @@ body{
 .login-page-box input::placeholder{
   color: rgba(255, 255, 255, 0.584) !important;
 }
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-  
-}
+
 @media screen and (max-width: 768px) {
   .my-favorite-videos-title{
       font-size: 2.1rem;

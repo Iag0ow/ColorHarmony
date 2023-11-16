@@ -1,8 +1,23 @@
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { configUsuario } from "../../utils/Config";
+import ColorHarmonyHome from "../components/images/ColorHarmonyHome.png";
 import "./HomePage.css";
-import { useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
-import ColorHarmonyHome from '../components/images/ColorHarmonyHome.png';
 export default function HomePage() {
+  const { data: ConfigUser } = useQuery({
+    queryKey: ["ConfigUser1"],
+    queryFn: async () => configUsuario(),
+  });
+
+  const [rota, setRota] = useState("/settings");
+
+  useEffect(() => {
+    if(ConfigUser === 'Algo deu errado'){
+      setRota("/questionnaire");
+    }
+    console.log(ConfigUser)
+  }, [ConfigUser]);
 
   return (
     <div className="login-page">
@@ -15,12 +30,23 @@ export default function HomePage() {
                     <img  src={ColorHarmonyHome} alt="" />
                   </div>
                 </div>
-                <Link to={'/questionnaire'} className={`d-flex align-items-center justify-content-center btn btn-entrar`}>Iniciar Questionário</Link>
-                <div className="text-center mt-4 mb-4 ou-border">
-                    <div></div>
-                </div>
-                <Link to={'/profile'} className={`d-flex align-items-center justify-content-center btn btn-entrar mt-4`}>Visualizar Perfil</Link>
               </div>
+              <Link
+                to={rota}
+                className={`d-flex align-items-center justify-content-center btn btn-entrar`}
+              >
+                Configurações
+              </Link>
+              <div className="text-center mt-4 mb-4 ou-border">
+                <div></div>
+              </div>
+              <Link
+                to={"/profile"}
+                className={`d-flex align-items-center justify-content-center btn btn-entrar mt-4`}
+              >
+                Visualizar Perfil
+              </Link>
+            </div>
           </div>
         </div>
       </form>

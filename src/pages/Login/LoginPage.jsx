@@ -1,23 +1,40 @@
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../utils/Config";
 import "./LoginPage.css";
 import backgroundImg from "../components/images/WoodsBackground.png";
 import LoginRegisterImageRight from "../components/images/ColorHarmonyHome.png";
 import { Link } from "react-router-dom";
 
+
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navegar = useNavigate();
+
+  const fazerLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await login({ email, password });
+      console.log("teste");
+      navegar("/");
+      localStorage.setItem("token", data.access_token);
+    } catch (error) {
+      setError("Falha ao tentar entrar...");
+    }
+  };
+
   return (
     <>
       <div className="temporaryBackground">
-        {/* <img
-          className="backgroundImg"
-          src={backgroundImg}
-          alt="background image"
-        /> */}
         <section className="row containerLogin">
           <div className=" imageLoginRight col-md-6">
             <img src={LoginRegisterImageRight} alt="Login image" />
           </div>
           <div className="formLoginLeft col-md-6">
-            <form className="loginInputs">
+            <form className="loginInputs" onSubmit={fazerLogin}>
               <h1>Bem vindo</h1>
               <h4 className="mb-5" style={{ opacity: "0.8" }}>
                 Entre em sua conta
@@ -26,11 +43,15 @@ export default function LoginPage() {
                 className="inputsLogin mb-4"
                 type="email"
                 placeholder="Entre com seu email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
               <input
                 className="inputsLogin mb-2"
                 type="password"
                 placeholder="Digite sua senha"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
               />
               <div>
                 <input
@@ -56,10 +77,9 @@ export default function LoginPage() {
                 </label>
               </div>
 
-              <Link to={"/"}>
-                <button className="buttonLogin">Entrar</button>
-              </Link>
-              <div className="mt-4" style={{ textAlign: "center" }}>
+              <label className="mt-3 text-danger">{error}</label>
+              <button className="buttonLogin">Entrar</button>
+              <div className="mt-2" style={{ textAlign: "center" }}>
                 Você não tem conta?{" "}
                 <a
                   className="loginRegister_tagA"
