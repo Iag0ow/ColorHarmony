@@ -3,56 +3,41 @@ import { useState } from "react";
 import {
   FormControl,
   FormLabel,
-  Input,
   FormErrorMessage,
-  FormHelperText,
+  RadioGroup,
+  Radio,
 } from "@chakra-ui/react";
 import { useQuestionnaireContext } from "../../../Provider/QuestionnaireProvider";
+
 const FirstQuestionnaire = ({
   setFormOneFirstQuestion,
   formOneFirstQuestion,
-  setFormOneSecondQuestion,
-  formOneSecondQuestion,
 }) => {
   const { isError } = useContext(useQuestionnaireContext);
 
+  const handleRadioChange = (value) => {
+    setFormOneFirstQuestion(value);
+    console.log(`Selected value: ${value}`);
+  };
+  
   return (
-    <>
-      <div className="row">
-        <FormControl isInvalid={isError} >
-          <div className="col-md-6 mx-auto mt-5">
-            <FormLabel>Conte quais problemas de visão você possui:</FormLabel>
-            <Input
-              isInvalid={isError && !formOneFirstQuestion}
-              type="text"
-              value={formOneFirstQuestion}
-              onChange={(e) => setFormOneFirstQuestion(e.target.value)}
-            />
-            {isError && !formOneFirstQuestion ? (
-              <FormErrorMessage>Campo obrigatório.</FormErrorMessage>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className="col-md-6 mx-auto mt-5">
-            <FormLabel>
-              Descreva o que em uma página web é ruim/prejudicial a sua visão.
-            </FormLabel>
-            <Input
-              isInvalid={isError && !formOneSecondQuestion}
-              type="text"
-              value={formOneSecondQuestion}
-              onChange={(e) => setFormOneSecondQuestion(e.target.value)}
-            />
-            {isError && !formOneSecondQuestion ? (
-              <FormErrorMessage>Campo obrigatório.</FormErrorMessage>
-            ) : (
-              ""
-            )}
-          </div>
-        </FormControl>
-      </div>
-    </>
+    <div className="row">
+        <FormControl isInvalid={isError}>
+        <div className="divFormOne  mx-auto mt-1 ">
+          <FormLabel htmlFor="daltonismo">Você possui algum problema ligado ao daltonismo?</FormLabel>
+          <RadioGroup
+           className="radioFormOne" value={formOneFirstQuestion} onChange={(e) => handleRadioChange(e)}>
+            <Radio value="true">Sim</Radio>
+            <Radio value="false">Não</Radio>
+          </RadioGroup>
+          {isError && !formOneFirstQuestion ? (
+            <FormErrorMessage>Campo obrigatório.</FormErrorMessage>
+          ) : (
+            ''
+          )}
+        </div>
+      </FormControl>
+    </div>
   );
 };
 

@@ -1,45 +1,46 @@
 import React, { useContext } from "react";
-import { useState } from "react";
 import {
   FormControl,
   FormLabel,
+  RadioGroup,
+  Radio,
   Input,
   FormErrorMessage,
-  FormHelperText,
 } from "@chakra-ui/react";
 import { useQuestionnaireContext } from "../../../Provider/QuestionnaireProvider";
+
 const SecondQuestionnaire = ({
   setFormSecondFirstQuestion,
   formSecondFirstQuestion,
-  setFormSecondSecondQuestion,
-  formSecondSecondQuestion,
 }) => {
   const { isError } = useContext(useQuestionnaireContext);
 
+  const handleRadioChange = (value) => {
+    setFormSecondFirstQuestion(value);
+    console.log(`Selected value: ${value}`);
+  };
+
   return (
-    <>
-      <div className="row">
-        <FormControl isInvalid={isError}>
-          <div className="col-md-6 mx-auto">
-            <FormLabel>
-              Quais cores você possui maior dificuldade em enxergar e por quais
-              você acharia melhor substituição?
-            </FormLabel>
-            <Input
-              isInvalid={isError && !formSecondFirstQuestion}
-              type="text"
-              value={formSecondFirstQuestion}
-              onChange={(e) => setFormSecondFirstQuestion(e.target.value)}
-            />
-            {isError && !formSecondFirstQuestion ? (
-              <FormErrorMessage>Campo obrigatório.</FormErrorMessage>
-            ) : (
-              ""
-            )}
-          </div>
-        </FormControl>
-      </div>
-    </>
+    <div className="row">
+      <FormControl isInvalid={isError}>
+        <div className="col-md-6 mx-auto divFormTwo">
+          <FormLabel>Você gostaria de ter os sites no modo escuro?</FormLabel>
+          <RadioGroup
+            className="radioFormTwo"
+            value={formSecondFirstQuestion}
+            onChange={(e) => handleRadioChange(e)}
+          >
+            <Radio value="true">Sim</Radio>
+            <Radio value="false">Não</Radio>
+          </RadioGroup>
+          {isError ? (
+            <FormErrorMessage>Campo obrigatório.</FormErrorMessage>
+          ) : (
+            ""
+          )}
+        </div>
+      </FormControl>
+    </div>
   );
 };
 

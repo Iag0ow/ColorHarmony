@@ -1,0 +1,34 @@
+.radioFormOne {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.divFormOne {
+  /* border: 1px solid red; */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.radioFormTwo {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.divFormTwo {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.radioFormThree {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.divFormThree {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

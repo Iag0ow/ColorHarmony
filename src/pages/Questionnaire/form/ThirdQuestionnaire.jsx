@@ -1,46 +1,42 @@
 import React, { useContext } from "react";
-import { useState } from "react";
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  FormErrorMessage,
-  FormHelperText,
-} from "@chakra-ui/react";
+import { FormControl, FormLabel, RadioGroup, Radio, FormErrorMessage } from "@chakra-ui/react";
 import { useQuestionnaireContext } from "../../../Provider/QuestionnaireProvider";
 
 const ThirdQuestionnaire = ({
   setFormThirdFirstQuestion,
   formThirdFirstQuestion,
-  setFormThirdSecondQuestion,
-  formThirdSecondQuestion,
 }) => {
   const { isError } = useContext(useQuestionnaireContext);
 
+  const handleRadioChange = (value) => {
+    setFormThirdFirstQuestion(value);
+    console.log(`Selected value: ${value}`);
+  };
+
   return (
-    <>
-      <div className="row">
-        <FormControl isInvalid={isError}>
-          <div className="col-md-6 mx-auto">
-            <FormLabel>
-              Qual cor e tamanho de fonte você acha ideial para sua
-              visualização?
-            </FormLabel>
-            <Input
-              isInvalid={isError && !formThirdFirstQuestion}
-              type="text"
-              value={formThirdFirstQuestion}
-              onChange={(e) => setFormThirdFirstQuestion(e.target.value)}
-            />
-            {isError && !formThirdFirstQuestion ?  (
-              <FormErrorMessage>Campo obrigatório.</FormErrorMessage>
-            ) : (
-              ""
-            )}
-          </div>
-        </FormControl>
-      </div>
-    </>
+    <div className="row">
+      <FormControl isInvalid={isError}>
+        <div className="col-md-6 mx-auto divFormThree">
+          <FormLabel>
+            Qual cor e tamanho de fonte você acha ideal para sua visualização?
+          </FormLabel>
+          <RadioGroup
+          className="radioFormThree"
+            value={formThirdFirstQuestion}
+            onChange={(e) => handleRadioChange(e)}
+          >
+            <Radio value="2.5">Grande</Radio>
+            <Radio value="2">Médio</Radio>
+            <Radio value="1.5">Pequeno</Radio>
+          </RadioGroup>
+          {isError ? (
+            <FormErrorMessage>Campo obrigatório.</FormErrorMessage>
+          ) : (
+            ""
+          )}
+        </div>
+      </FormControl>
+    </div>
   );
 };
 

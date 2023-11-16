@@ -9,7 +9,7 @@ import Profile from "./pages/Profile/Profile";
 import Questionnaire from "./pages/Questionnaire/Questionnaire";
 import RegisterPage from "./pages/Register/RegisterPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Settings from "./pages/settings/settings";
+import Settings from "./pages/Settings/Settings";
 
 export default function App() {
   function ProtectedRoute({ outlet }) {

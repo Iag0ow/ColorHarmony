@@ -16,7 +16,6 @@ export default function HomePage() {
     if (ConfigUser === "Algo deu errado") {
       setRota("/questionnaire");
     }
-    console.log(ConfigUser);
   }, [ConfigUser]);
 
   return (

@@ -24,6 +24,7 @@ import ThirdQuestionnaire from "./form/ThirdQuestionnaire";
 import ColorHarmonyHome from "../components/images/ColorHarmonyHome.png";
 import { Link } from "react-router-dom";
 import { useQuestionnaireContext } from "../../Provider/QuestionnaireProvider";
+import { setConfigUser } from "../../utils/Config";
 
 const Questionnaire = () => {
   const steps = [
@@ -50,7 +51,7 @@ const Questionnaire = () => {
   const [finished, setFinished] = useState(false);
 
   const handleNext = () => {
-    if ((activeStep === 0 && !formOneFirstQuestion) || !formOneSecondQuestion) {
+    if (activeStep === 0 && !formOneFirstQuestion) {
       updateStatusError(true);
       return;
     }
@@ -65,24 +66,29 @@ const Questionnaire = () => {
     updateStatusError(false);
     setActiveStep(activeStep < 2 ? activeStep + 1 : activeStep);
   };
-  const handleConclude = () => {
+  const handleConclude = async () => {
     if (activeStep === 2 && !formThirdFirstQuestion) {
       updateStatusError(true);
       return;
     }
     updateStatusError(false);
+    
     const obj = {
-      firstQuestion: formOneFirstQuestion,
-      secondQuestion: formOneSecondQuestion,
-      thirdQuestion: formSecondFirstQuestion,
-      fourthQuestion: formThirdFirstQuestion,
+      daltonian: JSON.parse(formOneFirstQuestion),
+      night_mode: JSON.parse(formSecondFirstQuestion),
+      font_size: Number(formThirdFirstQuestion),
     };
+    const data = await setConfigUser(obj);
+    if (data.error) {
+      updateStatusError(true);
+      return;
+    }
     setFinished(true);
   };
   return (
     <>
       <div className="mt-2 ms-2">
-        <Link to={"/"} onClick={()=> updateStatusError(false)}>
+        <Link to={"/"} onClick={() => updateStatusError(false)}>
           <img
             src={ColorHarmonyHome}
             alt="ColorHarmony"
@@ -103,15 +109,11 @@ const Questionnaire = () => {
                   </p>
                 </div>
                 <div className="d-flex justify-content-center">
-                <Link to={"/"}>
-                  <Button
-                    colorScheme="blue"
-                    variant="solid"
-                    className="mt-4"
-                  >
-                    Voltar
-                  </Button>
-                </Link>
+                  <Link to={"/"}>
+                    <Button colorScheme="blue" variant="solid" className="mt-4">
+                      Voltar
+                    </Button>
+                  </Link>
                 </div>
               </>
             ) : (
