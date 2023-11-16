@@ -17,12 +17,19 @@
 .botao {
   background-color: #d9d9d9;
   width: 10em;
-  height: 2.3em;
+  height: 1.7em;
   border-radius: 25px;
 }
 .text-btn {
   font-weight: bold;
 }
+.inputToken {
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  width: 200px;
+  margin-bottom: 20px;
+}
+
 
 @media screen and (max-width: 768px) {
   .carSettings{
