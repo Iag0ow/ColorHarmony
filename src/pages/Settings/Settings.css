@@ -25,7 +25,14 @@
 }
 
 @media screen and (max-width: 768px) {
+  .carSettings{
+    background-color: white;
+    width: 18em;
+    height: 30em;
+    border-radius: 10px;
+    padding: 14px;
+  }
   .borda{
-    width: inherit;
+    width: 21em;
   }
 }
