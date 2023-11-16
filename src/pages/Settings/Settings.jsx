@@ -1,4 +1,4 @@
-import { Text, Switch } from "@chakra-ui/react";
+import { Text, Switch, Button } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import "./Settings.css";
@@ -58,7 +58,10 @@ export default function Settings() {
               <div className="d-flex align-items-center justify-content-center  botao">
                   Edite
               </div>
-                </Link>
+              <div className="d-flex justify-content-center mt-3 me-3">
+              <Button className="p-0" style={{ backgroundColor: "#d9d9d9" }}><Link className="p-3" to="/">Voltar</Link></Button>
+            </div>
+              </Link>
             </div>
           </div>
         </div>

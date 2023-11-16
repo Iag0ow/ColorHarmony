@@ -96,7 +96,7 @@ const Profile = () => {
               </div>
             </div>
             <div className="d-flex justify-content-end me-3">
-              <Button><Link to="/">Voltar</Link></Button>
+              <Button className="p-0"><Link className="p-3" to="/">Voltar</Link></Button>
             </div>
           </div>
         </div>
