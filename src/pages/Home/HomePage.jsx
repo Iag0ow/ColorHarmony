@@ -19,12 +19,12 @@ export default function HomePage() {
   }, [ConfigUser]);
 
   return (
-    <div className="login-page">
-      <form className="container login-page-box">
+    <div className="home-page">
+      <form className="container home-page-box">
         <div className="page-box-context">
-          <div className="row">
+          <div className="row testeName">
             <div className="col-md-12">
-              <div className="d-flex justify-content-center align-items-center mb-5">
+              <div className="homeImageHolder d-flex justify-content-center align-items-center mb-5">
                 <div className="homeImage">
                   <img src={ColorHarmonyHome} alt="" />
                 </div>

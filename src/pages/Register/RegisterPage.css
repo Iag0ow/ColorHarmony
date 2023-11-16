@@ -9,7 +9,7 @@
     left: 0;
     z-index: -1; /* Define uma camada abaixo do conteúdo principal */
   }
-  .containerLogin {
+  .containerRegister {
     /* border: 1px solid black; */
     margin-right: 0px;
     margin-left: 0px;
@@ -17,12 +17,13 @@
     justify-content: center;
     align-items: center;
     padding-left: 200px;
+    padding-right: 200px;
     padding-top: 120px;
   }
   .registerInputs {
     padding: 60px;
     /* border: 1px solid red; */
-    height: 610px;
+    height: 560px;
     width: 549px;
     background-color: white;
     border-radius: 10px;
@@ -75,3 +76,11 @@
   input[type="checkbox"]:checked + label {
       color: black;
     }
+    @media (min-width: 1360px) and (min-height: 610px) and (max-width: 1400px) and (max-height: 900px) {
+      .containerRegister {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+        padding-top: 30px !important;
+      }
+    }
+    
